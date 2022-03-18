@@ -1,0 +1,45 @@
+<section class="product">
+    
+             <h1>Filter</h1>
+        <div class="product-dropdown ">
+           <div class="product-dropdown-mainCategory">
+            <p-dropdown
+            [options]="mainCategory"
+            (onChange)="GetSubCategory($event)"
+            placeholder="Main Category"
+            optionLabel="categoriesName"
+          ></p-dropdown>
+           </div>
+           <div  class="product-dropdown-SubCategory">
+            <p-dropdown
+            [options]="subCategory"
+            placeholder="Sub Category"
+            (onChange)="GetProducts($event)"
+            optionLabel="categoriesName"
+          ></p-dropdown>
+           </div>
+        </div>
+
+        <div class="product-table">
+            <p-table [value]="products" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product image</th>
+                    <th>Main Category</th>
+                    <th>Sub Category</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-products>
+                  <tr>
+                    <td>{{ products.ProductTableID }}</td>
+                    <td>{{ products.ProductName }}</td>
+                    <td>{{ products.Productimage }}</td>
+                    <td>{{ products.MaincategoriesName }}</td>
+                    <td>{{ products.categoriesName }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+        </div>
+</section>
